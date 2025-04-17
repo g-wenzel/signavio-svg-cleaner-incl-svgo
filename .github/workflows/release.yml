@@ -1,7 +1,7 @@
 name: Release
 
 on: 
-  workflow_dispatch:
+  workflow_dispatch: # Enable manual execution
   push:
     tags:
     - '*'
@@ -12,22 +12,25 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
+      # Step 2: Set up Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: 16
-
-      - name: Install dependencies
+          node-version: 16 # Specify the Node.js version
+        
+      - name: npm install
         run: npm install
 
-      - name: Build executables
-        run: npx pkg ./node_modules/svgo -t node16-win-x64 --out-path .
+      - name: build executables
+        run: npx pkg node_modules/svgo --targets=win
 
       - name: Zip svgo-win.exe
-        run: zip svgo-win.exe.zip svgo-win.exe
+        run: zip svgo-win.exe.zip svgo-win.exe -r
 
       - uses: ncipollo/release-action@v1
         with:
-          artifacts: "svgo-win.exe.zip"
+          artifacts: "svgo-win.exe.zip,svgo-win.exe"
           bodyFile: "README.md"
           token: ${{ secrets.GITHUB_TOKEN }}
+        
+        
