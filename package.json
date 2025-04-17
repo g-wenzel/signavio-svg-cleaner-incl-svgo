@@ -1,41 +1,24 @@
 {
-  "name": "svgo-executable",
-  "version": "2.8.0",
-  "description": "Wrapper under SVGO to run it without installed node.exe on computer",
+  "name": "signavio-svg-cleaner-incl-svgo",
+  "version": "1.0.0",
+  "description": "`svgo-executable` is standalone binary executable which wraps `svgo` (Scalable Vector Graphics Optimizer) using `pkg` (Node.js binary compiler)",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Antonytm/svgo-executable.git"
+    "url": "git+https://github.com/g-wenzel/signavio-svg-cleaner-incl-svgo.git"
   },
-  "keywords": [
-    "SVGO",
-    "executable",
-    "SVG",
-    "node.exe",
-    "package",
-    "pkg",
-    "windows",
-    "linux",
-    "macos",
-    "svgo-win",
-    "svgo-linux",
-    "svgo-macos",
-    "svgo-executable",
-    "svgo-win.exe",
-    "svgop.exe alternative",
-    "svgop"
-  ],
-  "author": "Anton Tishchenko",
-  "license": "MIT",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Antonytm/svgo-executable/issues"
+    "url": "https://github.com/g-wenzel/signavio-svg-cleaner-incl-svgo/issues"
   },
-  "homepage": "https://github.com/Antonytm/svgo-executable#readme",
+  "homepage": "https://github.com/g-wenzel/signavio-svg-cleaner-incl-svgo#readme",
   "dependencies": {
-    "pkg": "5.5.2",
-    "svgo": "2.8.0"
+    "pkg": "^5.8.1",
+    "svgo": "^3.3.2"
   }
 }
