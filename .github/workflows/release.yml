@@ -26,6 +26,14 @@ jobs:
       - name: Zip svgo-win.exe
         run: zip svgo-win.exe.zip svgo-win.exe
 
+      - name: Ensure Tag
+        if: github.ref_type != 'tag'
+        run: |
+          echo "No tag found. Generating a default tag."
+          TAG="v$(date +'%Y%m%d%H%M%S')"
+          git tag $TAG
+          git push origin $TAG
+
       - uses: ncipollo/release-action@v1
         with:
           artifacts: "svgo-win.exe.zip"
