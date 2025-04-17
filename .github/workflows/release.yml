@@ -21,7 +21,7 @@ jobs:
         run: npm install
 
       - name: Build executables
-        run: npx pkg ./node_modules/svgo 
+        run: "npx pkg ./node_modules/svgo --config '{\"scripts\": [\"lib/svgo-node.js\"]}'"
 
       - name: Zip svgo-win.exe
         run: zip svgo-win.exe.zip svgo-win.exe
