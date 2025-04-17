@@ -1,7 +1,6 @@
 name: Release
 
 on: 
-  workflow_dispatch: # Enable manual execution
   push:
     tags:
     - '*'
@@ -12,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      # Step 2: Set up Node.js
+      # Set up Node.js
       - name: Setup Node.js
         uses: actions/setup-node@v2
         with:
