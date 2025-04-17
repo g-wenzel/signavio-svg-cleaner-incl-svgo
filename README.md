@@ -1,36 +1,30 @@
-# svgo-executable
-
-`svgo-executable` is standalone binary executable which wraps `svgo` (Scalable Vector Graphics Optimizer) using `pkg` (Node.js binary compiler)
-
-### Why may you need it?
-
-`svgo` requires a Nodejs environment to run. It is not very convenient time to time. Also if you run `svgo` on different machines, there could be installed different versions of `node.exe`, different versions of `npm`. That is why for .NET of Java worlds it could be convenient to have portable `svgo` executable that has no dependencies. You don't need to have `node`, `npm`, bunch of files in `node_modules`. All that you need is just one executable.
-
-## Version Numbering Conventions
-
-As the main goal of repository is just run `svgo` versions in this repository will correspond version of `svgo` that is baked in executables.
-
-## Build Process
-
-In order to make build and release process as transparent as it possible, everything is done using [GitHub actions](https://github.com/Antonytm/svgo-executable/actions). 
-
-## Download
-
-Download the [latest release](https://github.com/Antonytm/svgo-executable/releases/latest):
-
-* svgo-win.exe - Windows
-* svgo-macos - MacOS
-* svgo-linux - Linux
+# Signavio SVG-file Cleaner including SVG Optimizer (SVGO)
+When using SVGs exported from Signavio arrowheads are often not displayed properly. The Powershell Script fixes the SVG file and passes the file to the SVGO tool afterwards. Tested on Windows only. Could possibly run on Mac and Linux, if you have Powershell installed.
 
 ## Usage
 
-Please refer to [usage of SVGO](https://github.com/svg/svgo).
+- Download the Powershell script.
+- Download the svgo-win.exe binary from the [latest release](https://github.com/g-wenzel/signavio-svg-cleaner-incl-svgo/releases/latest) and place it in the same folder as the Powershell script.
+- Right-click on the powershell script and choose "Run with Powershell"
 
-## Changelog
+Please refer also to [usage of SVGO](https://github.com/svg/svgo).
 
-2022-01-28: Version 2.8.0
+## svgo-executable
 
-Initial version
+`svgo-executable` is standalone binary executable which wraps `svgo` (Scalable Vector Graphics Optimizer) using `pkg` (Node.js binary compiler). The binary is called by the Powershell Script.
+It is adapted from [this repo](https://github.com/Antonytm/svgo-executable):
+
+## Build Process
+
+In order to make build and release process as transparent as it possible, everything is done using [GitHub actions](https://github.com/g-wenzel/signavio-svg-cleaner-incl-svgo/actions). 
+
+To make a new build with the current version of SVGO
+- Run the action `Update Dependencies` manually
+- Clone the repo on your local machine
+- cd into the repo folder
+- create a tag (ideally the current SVGO version e.g. 3.3.2) by `git tag v3.3.2`
+- push the tag to Github by `git push origin v3.3.2`
+- pushing the tag triggers the build and release action
 
 ## Links
 
