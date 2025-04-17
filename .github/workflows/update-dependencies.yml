@@ -1,0 +1,35 @@
+name: Update Dependencies
+
+on:
+  workflow_dispatch: # Allows you to manually trigger the workflow
+
+jobs:
+  update-dependencies:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Set Up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16' # Ensure a compatible Node.js version
+
+      - name: Initialize New package.json
+        run: |
+          rm -f package.json package-lock.json
+          npm init -y
+
+      - name: Install Dependencies
+        run: |
+          npm install svgo@latest pkg@latest --save
+
+      - name: Commit and Push Changes
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add package.json package-lock.json
+          git commit -m "Update package.json and package-lock.json with latest dependencies"
+          git push
