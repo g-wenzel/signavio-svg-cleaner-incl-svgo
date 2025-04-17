@@ -181,5 +181,6 @@ if (-not (Test-Path $svgoPath)) {
 # The call operator (&) is used to execute the binary.
 & $svgoPath $filePath
 
-Write-Host "Zusaetzliche SVG-Optimierung erfolgt. `r`nBeliebige Taste druecken zum Beenden..."
-[void][System.Console]::ReadKey($true)
+Write-Host "Zusaetzliche SVG-Optimierung erfolgt."
+Start-Sleep -Seconds 2
+exit
